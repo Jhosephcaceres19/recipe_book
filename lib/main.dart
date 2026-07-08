@@ -36,7 +36,7 @@ class RecibeBook extends StatelessWidget {
           bottom: const TabBar(
             // Cambiado a color blanco para que los iconos/textos se vean sobre el naranja
             labelColor: Colors.white,
-            unselectedLabelColor: Color.fromRGBO(240, 241, 239, 0.986),
+            unselectedLabelColor: Color.fromRGBO(193, 196, 190, 0.984),
             tabs: [
               Tab(icon: Icon(Icons.home), text: 'Home'),
               Tab(icon: Icon(Icons.favorite), text: "Me gusta"),
