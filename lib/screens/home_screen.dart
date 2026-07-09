@@ -84,10 +84,16 @@ class RecipeForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _formKey = GlobalKey<FormState>();
+
+    final TextEditingController _recipeName = TextEditingController();
+    final TextEditingController _recipeAuthor = TextEditingController();
+    final TextEditingController _recipeIMG = TextEditingController();
+
     return Padding(
-      padding: EdgeInsets.all(8),
+      padding: EdgeInsets.all(12),
       child: Form(
-        // key: _formKey,
+        key: _formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -95,7 +101,34 @@ class RecipeForm extends StatelessWidget {
               "Add new Recipe",
               style: TextStyle(color: Colors.deepOrange, fontSize: 20),
             ),
+            SizedBox(height: 16),
+            _buildTextField(controller: _recipeName, label: "Recipe Name"),
+            _buildTextField(controller: _recipeAuthor, label: "Recipe Author"),
+            _buildTextField(controller: _recipeIMG, label: "Image URL"),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTextField({
+    required String label,
+    required TextEditingController controller,
+  }) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 12.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+          labelText: label,
+          labelStyle: TextStyle(
+            fontFamily: "Quicksand",
+            color: Colors.deepOrange,
+          ),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.deepOrange, width: 1),
+            borderRadius: BorderRadius.circular(10),
+          ),
         ),
       ),
     );
